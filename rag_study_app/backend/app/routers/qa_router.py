@@ -12,14 +12,14 @@ router = APIRouter(tags=["Question Answering"])
 
 class Question(BaseModel):
     query: str
-    top_k: int = 3  # default to 3 results
+    top_k: int = 1  # default to 3 results
 
 
 @router.post("/")
 async def ask_question(payload: Question):
     """
     Takes a query, embeds it, retrieves top chunks from FAISS,
-    and (later) will send them to the LLM for answer generation.
+    and returns them without embeddings.
     """
     # 1. Check if vector DB is initialized
     if vector_db is None or not hasattr(vector_db, "index"):
@@ -36,8 +36,13 @@ async def ask_question(payload: Question):
     # 3. Search in FAISS
     results = vector_db.query(query_emb, top_k=payload.top_k)
 
-    # 4. Return raw chunks (for now)
-    return {"query": payload.query, "results": results}
+    # 4. Remove embeddings from results
+    results_clean = [
+        {k: v for k, v in r.items() if k != "embedding"} for r in results
+    ]
+
+    # 5. Return cleaned chunks
+    return {"query": payload.query, "results": results_clean}
 
 
 # --------------------------
