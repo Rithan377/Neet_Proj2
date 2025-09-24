@@ -75,3 +75,5 @@ if __name__ == "__main__":
     chunks = parse_pdf("./data/med-test-rag.pdf")
     for chunk in chunks[:5]:
         print(chunk)
+
+        print("new")
