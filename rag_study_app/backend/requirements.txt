@@ -11,3 +11,5 @@ sentence-transformers>=2.2.2
 python-dotenv>=1.0.1
 rich>=13.6.0
 gunicorn>=22.1.0
+google-generativeai
+

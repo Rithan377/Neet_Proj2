@@ -1,9 +1,9 @@
-# router/qa_ro.py
+# router/qa_router.py
 from fastapi import APIRouter
 from pydantic import BaseModel
 
-from app.services.embedding_service import get_embeddings
 from app.db.vector_db_instance import vector_db  # Use the shared global instance
+from app.services.rag_service import retrieve_and_summarize
 from app.db.vector_db import VectorDB
 
 # Create router
@@ -12,37 +12,27 @@ router = APIRouter(tags=["Question Answering"])
 
 class Question(BaseModel):
     query: str
-    top_k: int = 1  # default to 3 results
+    top_k: int = 1  # default to 1 result
 
 
 @router.post("/")
 async def ask_question(payload: Question):
     """
-    Takes a query, embeds it, retrieves top chunks from FAISS,
-    and returns them without embeddings.
+    Takes a query, retrieves top chunks from FAISS,
+    summarizes each via LLM, and returns both raw and summarized content.
     """
     # 1. Check if vector DB is initialized
     if vector_db is None or not hasattr(vector_db, "index"):
         return {"error": "VectorDB not initialized. Run ingestion first."}
 
-    # DEBUG: Check if index is populated
-    print("VectorDB total vectors:", vector_db.index.ntotal)
     if vector_db.index.ntotal == 0:
-        print("VectorDB is empty! Did you forget to ingest/load vectors?")
+        return {"error": "VectorDB is empty. Run ingestion first."}
 
-    # 2. Embed the query
-    query_emb = get_embeddings([{"text": payload.query}])[0]["embedding"]
+    # 2. Retrieve and summarize chunks using RAG service
+    results = retrieve_and_summarize(payload.query, top_k=payload.top_k)
 
-    # 3. Search in FAISS
-    results = vector_db.query(query_emb, top_k=payload.top_k)
-
-    # 4. Remove embeddings from results
-    results_clean = [
-        {k: v for k, v in r.items() if k != "embedding"} for r in results
-    ]
-
-    # 5. Return cleaned chunks
-    return {"query": payload.query, "results": results_clean}
+    # 3. Return cleaned results (embeddings already excluded)
+    return {"query": payload.query, "results": results}
 
 
 # --------------------------
