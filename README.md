@@ -62,34 +62,37 @@ The architecture is optimized for **clarity, extensibility, and real-world RAG w
 ---
 
 ## Project Structure
+
+```
 Neet_Proj2/
 ├── rag_study_app/
-│ ├── backend/
-│ │ ├── app/
-│ │ │ ├── main.py # FastAPI entry point
-│ │ │ ├── config.py # App configuration
-│ │ │ ├── routers/ # API route definitions
-│ │ │ ├── services/ # RAG, embedding, QA logic
-│ │ │ ├── db/ # FAISS vector DB logic
-│ │ │ ├── scripts/ # Utility and setup scripts
-│ │ │ └── utils/ # Helper utilities
-│ │ ├── requirements.txt # Backend dependencies
-│ │ ├── Dockerfile # Backend container setup
-│ │ ├── start.sh # Startup script
-│ │ ├── faiss.index # Persisted FAISS index
-│ │ └── faiss.index.chunks # Index metadata
-│ ├── data/
-│ │ └── med-test-rag.pdf # Sample study material
-│ ├── frontend/
-│ │ └── package.json # Frontend scaffold
-│ └── tests/
-│ ├── test_embedding.py
-│ ├── test_parser.py
-│ └── test_qa.py
+│   ├── backend/
+│   │   ├── app/
+│   │   │   ├── main.py              # FastAPI entry point
+│   │   │   ├── config.py            # App configuration
+│   │   │   ├── routers/             # API route definitions
+│   │   │   ├── services/            # RAG, embedding, QA logic
+│   │   │   ├── db/                  # FAISS vector DB logic
+│   │   │   ├── scripts/             # Utility and setup scripts
+│   │   │   └── utils/               # Helper utilities
+│   │   ├── requirements.txt         # Backend dependencies
+│   │   ├── Dockerfile               # Backend container setup
+│   │   ├── start.sh                 # Startup script
+│   │   ├── faiss.index              # Persisted FAISS index
+│   │   └── faiss.index.chunks       # Index metadata
+│   ├── data/
+│   │   └── med-test-rag.pdf          # Sample study material
+│   ├── frontend/
+│   │   └── package.json             # Frontend scaffold
+│   └── tests/
+│       ├── test_embedding.py
+│       ├── test_parser.py
+│       └── test_qa.py
 ├── setup/
-│ ├── folder.py
-│ └── req.txt
+│   ├── folder.py
+│   └── req.txt
 └── README.md
+```
 
 
 ---
