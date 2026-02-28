@@ -12,4 +12,5 @@ python-dotenv>=1.0.1
 rich>=13.6.0
 gunicorn>=22.1.0
 google-generativeai
+fitz==0.9.0
 
