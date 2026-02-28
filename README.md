@@ -93,9 +93,6 @@ Neet_Proj2/
 
 
 ---
-![NEET_PROJ2_2](assets/Stream Flow.png)
-![NEET_PROJ2_2](assets/image.png)
-![NEET_PROJ2_1](assets/image copy.png)
 
 ## Requirements
 
@@ -150,4 +147,7 @@ pytest tests/
 Author
 Rithan
 GitHub: https://github.com/Rithan377
+![NEET_PROJ2_2](assets/Stream Flow.png)
+![NEET_PROJ2_2](assets/image.png)
+![NEET_PROJ2_1](assets/image copy.png)
 
