@@ -6,6 +6,15 @@ The project is structured as a **full-stack application** with a Python-based ba
 
 ---
 
+![Python](https://img.shields.io/badge/python-3.9+-3776AB?style=flat&logo=python&logoColor=white)
+![FastAPI](https://img.shields.io/badge/fastapi-backend-009688?style=flat&logo=fastapi&logoColor=white)
+![FAISS](https://img.shields.io/badge/FAISS-vector%20database-0467DF?style=flat)
+![RAG](https://img.shields.io/badge/RAG-retrieval--augmented--generation-6A5ACD?style=flat)
+![Gemini](https://img.shields.io/badge/Gemini-Google%20LLM-4285F4?style=flat&logo=google&logoColor=white)
+![Docker](https://img.shields.io/badge/docker-containerized-2496ED?style=flat&logo=docker&logoColor=white)
+![ngrok](https://img.shields.io/badge/ngrok-api%20exposure-1F1E37?style=flat&logo=ngrok&logoColor=white)
+![License](https://img.shields.io/badge/license-MIT-yellow?style=flat)
+
 ## Project Overview
 
 The application allows users to:
@@ -19,14 +28,7 @@ The application allows users to:
 The architecture is optimized for **clarity, extensibility, and real-world RAG workflows**, rather than simple prompt-based demos.
 
 ---
-![Python](https://img.shields.io/badge/python-3.9+-3776AB?style=flat&logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/fastapi-backend-009688?style=flat&logo=fastapi&logoColor=white)
-![FAISS](https://img.shields.io/badge/FAISS-vector%20database-0467DF?style=flat)
-![RAG](https://img.shields.io/badge/RAG-retrieval--augmented--generation-6A5ACD?style=flat)
-![Gemini](https://img.shields.io/badge/Gemini-Google%20LLM-4285F4?style=flat&logo=google&logoColor=white)
-![Docker](https://img.shields.io/badge/docker-containerized-2496ED?style=flat&logo=docker&logoColor=white)
-![ngrok](https://img.shields.io/badge/ngrok-api%20exposure-1F1E37?style=flat&logo=ngrok&logoColor=white)
-![License](https://img.shields.io/badge/license-MIT-yellow?style=flat)
+
 
 ## High-Level Architecture
 
